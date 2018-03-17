@@ -29,7 +29,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog="a-tempo",
-        description="Set the correct 'DateTimeOriginal' in EXIF ​​to downloaded Narrative Clip photos.",
+        description="Set the correct 'DateTimeOriginal' ​​to downloaded Narrative Clip photos.",
         epilog="Produced by Shin'ichiro SUZUKI <shin@sforzando.co.jp>",
         add_help=True
     )
