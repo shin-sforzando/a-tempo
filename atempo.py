@@ -13,7 +13,7 @@ from tqdm import tqdm
 
 def main(args):
     print(args)
-    path = Path(args.directory)
+    path = Path(args.d)
     for f in tqdm(list(path.rglob("[0-9_]*.jpg"))):
         print(f)
         target_dt = datetime.strptime(f.name + "+0000", "%Y%m%d_%H%M%S_000.jpg%z")
