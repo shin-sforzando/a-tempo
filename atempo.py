@@ -18,7 +18,11 @@ def main(args):
         print(f)
         target_dt = datetime.strptime(f.name + "+0000", "%Y%m%d_%H%M%S_000.jpg%z")
         target_dt = target_dt + timedelta(hours=float(args.td))
-        exif_original = piexif.load(f.as_posix())
+        try:
+            exif_original = piexif.load(f.as_posix())
+        except piexif.InvalidImageDataError as iide:
+            sys.stderr.write("{}".format(iide))
+            continue
         if args.verbose:
             pprint(exif_original)
         exif_original["Exif"][piexif.ExifIFD.DateTimeOriginal] = target_dt.strftime("%Y:%m:%d %H:%M:%S")
